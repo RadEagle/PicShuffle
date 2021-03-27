@@ -18,7 +18,12 @@ def rename_file(file_name, phrase):
 dir_name = input("Enter directory here: ")
 
 # Process directory
-directory = os.listdir(dir_name)
+try:
+    directory = os.listdir(dir_name)
+except FileNotFoundError:
+    print("No such directory as", dir_name)
+    exit()
+
 dir_size = len(directory)
 os.chdir(dir_name)
 nums = random.sample(range(1, dir_size + 1), dir_size)
