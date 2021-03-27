@@ -6,7 +6,7 @@ There are two ways to set up this tool
 2. Copy the entire code of rename.py and save as rename.py
 
 Then, take a folder full of images and place them in the same directory as rename.py.
-Remember the neame of the image folder you just placed.
+Remember the name of the image folder you just placed.
 
 ## Running the Python File
 Run the python file using Python Launcher, or any program that runs Python
