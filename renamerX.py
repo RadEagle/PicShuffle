@@ -30,21 +30,28 @@ except errors.RequestError:
 
 # Input directory
 # dir_name = input("Enter directory here: ")
-dir_name = "The Deep Sea/Tarnished"
+dir_name = "The Deep Sea"
 
 # Process directory
-dir_node = m.find('The Deep Sea/Tarnished')[0]
+dir_node = m.find(dir_name)[0]
 directory = list(m.get_files_in_node(dir_node).items())
 dir_size = len(directory)
 nums = random.sample(range(1, dir_size + 1), dir_size)
 
 # To prevent loss of files, rename each file to strings of characters
+# f_type ensures the file type is a regular file and not a folder
 for file_pack in directory:
-    rename_file(file_pack, get_random_string(10))
+    f_name = file_pack[1]['a']['n']
+    f_type = file_pack[1]['t']
+    if f_name[0:2] != "0_" and f_type == 0:
+        rename_file(file_pack, "kq" + get_random_string(10))
 
 # Rename each file in numerical order
 count = 0
 directory = list(m.get_files_in_node(dir_node).items())
 for file_pack in directory:
-    rename_file(file_pack, str(nums[count]))
+    f_name = file_pack[1]['a']['n']
+    f_type = file_pack[1]['t']
+    if f_name[0:2] == "kq" and f_type == 0:
+        rename_file(file_pack, str(nums[count]))
     count = count + 1
