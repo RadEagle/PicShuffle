@@ -54,4 +54,4 @@ for file_pack in directory:
     f_type = file_pack[1]['t']
     if f_name[0:2] == "kq" and f_type == 0:
         rename_file(file_pack, str(nums[count]))
-    count = count + 1
+        count = count + 1
